@@ -1,4 +1,4 @@
-Project RE
+Project RE [![Build Status](https://travis-ci.com/SoraCasus/ProjectRE.svg?branch=master)](https://travis-ci.com/SoraCasus/ProjectRE)
 ===
 This is a project, currently in pre alpha phase.
 

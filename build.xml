@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="projectre" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.klib"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.zip"/>
+    <include name="*.ane"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.joml-1.9.9-javadoc.classpath">
+    <pathelement location="${basedir}/lib/PNGDecoder.jar"/>
+    <pathelement location="${basedir}/lib/annotations-15.0.jar"/>
+    <pathelement location="${basedir}/lib/joml-1.9.9.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-assimp-natives-linux.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-assimp-natives-macos.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-assimp-natives-windows.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-assimp.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-glfw-natives-linux.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-glfw-natives-macos.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-glfw-natives-windows.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-glfw.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-nanovg-natives-linux.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-nanovg-natives-macos.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-nanovg-natives-windows.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-nanovg.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-natives-linux.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-natives-macos.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-natives-windows.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-openal-natives-linux.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-openal-natives-macos.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-openal-natives-windows.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-openal.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-opencl.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-opengl-natives-linux.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-opengl-natives-macos.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-opengl-natives-windows.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-opengl.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-stb-natives-linux.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-stb-natives-macos.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-stb-natives-windows.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl-stb.jar"/>
+    <pathelement location="${basedir}/lib/lwjgl.jar"/>
+    <pathelement location="${basedir}/lib/steamworks4j-1.7.0.jar"/>
+    <pathelement location="${basedir}/lib/xpp3-1.1.4c.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="forms-*.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module ProjectRE -->
+  
+  <dirname property="module.projectre.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.projectre" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.projectre" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.projectre" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.projectre" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="projectre.output.dir" value="${module.projectre.basedir}/out/production/ProjectRE"/>
+  <property name="projectre.testoutput.dir" value="${module.projectre.basedir}/out/test/ProjectRE"/>
+  
+  <path id="projectre.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="projectre.module.production.classpath">
+    <path refid="${module.jdk.classpath.projectre}"/>
+    <path refid="library.joml-1.9.9-javadoc.classpath"/>
+  </path>
+  
+  <path id="projectre.runtime.production.module.classpath">
+    <pathelement location="${projectre.output.dir}"/>
+    <path refid="library.joml-1.9.9-javadoc.classpath"/>
+  </path>
+  
+  <path id="projectre.module.classpath">
+    <path refid="${module.jdk.classpath.projectre}"/>
+    <pathelement location="${projectre.output.dir}"/>
+    <path refid="library.joml-1.9.9-javadoc.classpath"/>
+  </path>
+  
+  <path id="projectre.runtime.module.classpath">
+    <pathelement location="${projectre.testoutput.dir}"/>
+    <pathelement location="${projectre.output.dir}"/>
+    <path refid="library.joml-1.9.9-javadoc.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.projectre">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.projectre">
+    <patternset refid="excluded.from.module.projectre"/>
+  </patternset>
+  
+  <path id="projectre.module.sourcepath">
+    <dirset dir="${module.projectre.basedir}">
+      <include name="src"/>
+      <include name="res"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.projectre" depends="compile.module.projectre.production,compile.module.projectre.tests" description="Compile module ProjectRE"/>
+  
+  <target name="compile.module.projectre.production" depends="register.custom.compilers" description="Compile module ProjectRE; production classes">
+    <mkdir dir="${projectre.output.dir}"/>
+    <javac2 destdir="${projectre.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.projectre}/javac">
+      <compilerarg line="${compiler.args.projectre}"/>
+      <bootclasspath refid="projectre.module.bootclasspath"/>
+      <classpath refid="projectre.module.production.classpath"/>
+      <src refid="projectre.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.projectre"/>
+    </javac2>
+    
+    <copy todir="${projectre.output.dir}">
+      <fileset dir="${module.projectre.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.projectre.basedir}/res">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.projectre.tests" depends="register.custom.compilers,compile.module.projectre.production" description="compile module ProjectRE; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.projectre" description="cleanup module">
+    <delete dir="${projectre.output.dir}"/>
+    <delete dir="${projectre.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.projectre" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.projectre" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.rutikal_escape_0.2.0a" value="${basedir}/out/artifacts/Rutikal_Escape_0_2_0a"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.Rutikal Escape 0.2.0a.jar" value="${artifacts.temp.dir}/Rutikal Escape 0.2.0a.jar"/>
+  </target>
+  
+  <target name="artifact.rutikal_escape_0.2.0a" depends="init.artifacts, compile.module.projectre" description="Build &#39;Rutikal Escape 0.2.0a&#39; artifact">
+    <property name="artifact.temp.output.rutikal_escape_0.2.0a" value="${artifacts.temp.dir}/Rutikal_Escape_0_2_0a"/>
+    <mkdir dir="${artifact.temp.output.rutikal_escape_0.2.0a}"/>
+    <jar destfile="${temp.jar.path.Rutikal Escape 0.2.0a.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${projectre.output.dir}"/>
+      <zipfileset src="${basedir}/lib/joml-1.9.9.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-assimp-natives-linux.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-assimp-natives-macos.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-assimp-natives-windows.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-assimp.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-glfw-natives-linux.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-glfw-natives-macos.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-glfw-natives-windows.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-glfw.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-nanovg-natives-linux.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-nanovg-natives-macos.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-nanovg-natives-windows.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-nanovg.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-natives-linux.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-natives-macos.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-natives-windows.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-openal-natives-linux.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-openal-natives-macos.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-openal-natives-windows.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-openal.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-opencl.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-opengl-natives-linux.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-opengl-natives-macos.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-opengl-natives-windows.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-opengl.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-stb-natives-linux.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-stb-natives-macos.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-stb-natives-windows.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl-stb.jar"/>
+      <zipfileset src="${basedir}/lib/lwjgl.jar"/>
+      <zipfileset src="${basedir}/lib/PNGDecoder.jar"/>
+      <zipfileset src="${basedir}/lib/steamworks4j-1.7.0.jar"/>
+    </jar>
+    <copy file="${temp.jar.path.Rutikal Escape 0.2.0a.jar}" tofile="${artifact.temp.output.rutikal_escape_0.2.0a}/Rutikal Escape 0.2.0a.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.rutikal_escape_0.2.0a" description="Build all artifacts">
+    <mkdir dir="${artifact.output.rutikal_escape_0.2.0a}"/>
+    <copy todir="${artifact.output.rutikal_escape_0.2.0a}">
+      <fileset dir="${artifact.temp.output.rutikal_escape_0.2.0a}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
