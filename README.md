@@ -1,21 +1,11 @@
 Project RE
 ===
-This is a project, currently in beta phase.
+This is a project, currently in pre alpha phase.
 
 Download
 ===
-Download Here: [Rutikal Escape 0.2.0a.jar](/out/artifacts/Rutikal_Escape_0_2_0a/Rutikal Escape 0.2.0a.jar)
+There are no working builds as of yet
 
 Changelog
 ===
-- Implemented game states
-    - Menu State
-    - Game State
-    - Rutikal Codex State with lots of information!
-- Implemented UI
-    - Buttons
-    - Boxes
-    - Text
-    - TextBoxes
-- Added Rutikal Codex
-    - **Behold! The Lore!**
+You can track the to do list here -> [Todo](TODO.md)
