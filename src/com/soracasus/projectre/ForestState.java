@@ -14,8 +14,10 @@ import com.soracasus.projectre.render.light.Light;
 import com.soracasus.projectre.render.renderers.EntityRenderer;
 import com.soracasus.projectre.render.renderers.SkyboxRenderer;
 import com.soracasus.projectre.render.renderers.TerrainRenderer;
+import com.soracasus.projectre.render.renderers.WaterRenderer;
 import com.soracasus.projectre.render.skybox.Skybox;
 import com.soracasus.projectre.render.texture.Texture;
+import com.soracasus.projectre.render.water.WaterTile;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.lwjgl.opengl.GL11;
@@ -31,7 +33,8 @@ public class ForestState implements IGameLogic {
 	// Todo(Sora): Rebuild Player
 	private ShipPlayer player;
 
-	private Tree tree;
+	// private Tree tree;
+
 
 	private EntityRenderer entityRenderer;
 	private List<Entity> entities;
@@ -39,6 +42,8 @@ public class ForestState implements IGameLogic {
 	private TerrainRenderer terrainRenderer;
 	private Skybox skybox;
 	private SkyboxRenderer skyboxRenderer;
+	private WaterTile waterTile;
+	private WaterRenderer waterRenderer;
 
 	private boolean initialized = false;
 
@@ -94,6 +99,9 @@ public class ForestState implements IGameLogic {
 
 		skyboxRenderer = new SkyboxRenderer(window);
 
+		waterTile = new WaterTile(1.0F, 0, 0);
+		waterRenderer = new WaterRenderer(window);
+
 		initialized = true;
 	}
 
@@ -109,9 +117,16 @@ public class ForestState implements IGameLogic {
 		GL11.glClearColor(1, 1, 1, 1);
 		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT | GL11.GL_STENCIL_BUFFER_BIT);
 
+		GL11.glDisable(GL11.GL_CULL_FACE);
+		List<WaterTile> waters = new ArrayList<>();
+		waters.add(waterTile);
+		waterRenderer.render(waters, camera);
+		window.restoreState();
+
 		skyboxRenderer.render(skybox, camera);
 		terrainRenderer.render(terrain, light, camera);
 		entityRenderer.render(entities, light, camera);
+
 
 		window.restoreState();
 	}
@@ -124,7 +139,7 @@ public class ForestState implements IGameLogic {
 
 	@Override
 	public boolean initialized () {
-		return false;
+		return initialized;
 	}
 
 }

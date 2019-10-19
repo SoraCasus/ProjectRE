@@ -45,22 +45,22 @@ public class UniformMaterial extends UniformStruct {
 	}
 
 	public void load (Material material) {
-		hasDiffuse.load(material.diffuse != null);
+		hasDiffuse.load(material.getDiffuse() != null);
 		diffuse.load(0);
 
-		hasSpecular.load(material.specular != null);
-		specular.load(2);
+		// hasSpecular.load(material.specular != null);
+		// specular.load(2);
 
-		hasNormal.load(material.normal != null);
+		hasNormal.load(material.getNormal() != null);
 		normal.load(1);
 
-		hasHeight.load(material.height != null);
-		height.load(3);
+		// hasHeight.load(material.height != null);
+		// height.load(3);
 
-		colour.load(material.colour);
+		colour.load(material.getColour());
 
-		shineDamper.load(material.shineDamper);
-		reflectivity.load(material.reflectivity);
+		shineDamper.load(material.getShineDamper());
+		reflectivity.load(material.getReflectivity());
 	}
 
 }

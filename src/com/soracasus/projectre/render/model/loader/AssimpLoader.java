@@ -29,7 +29,7 @@ public class AssimpLoader {
 		final int flags = Assimp.aiProcess_CalcTangentSpace | Assimp.aiProcess_FlipUVs | Assimp.aiProcess_FixInfacingNormals
 				| Assimp.aiProcess_Triangulate | Assimp.aiProcess_JoinIdenticalVertices | Assimp.aiProcess_GenSmoothNormals | Assimp.aiProcess_GenNormals;
 		ByteBuffer buffer = Utils.loadToByteBuffer(file, 1024);
-		AIScene scene = Assimp.aiImportFileFromMemory(buffer, flags, file.type);
+		AIScene scene = Assimp.aiImportFileFromMemory(buffer, flags, file.getType());
 		if (scene == null) {
 			System.err.println("Failed to load Assimp file: " + file);
 			return null;

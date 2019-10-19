@@ -1,5 +1,6 @@
 package com.soracasus.projectre.core;
 
+import com.soracasus.projectre.DebugState;
 import com.soracasus.projectre.DocumentState;
 import com.soracasus.projectre.ForestState;
 import com.soracasus.projectre.MenuState;
@@ -15,6 +16,7 @@ public class StateManager {
 	public static DocumentState documentState;
 	public static ShipState shipState;
 	public static ForestState forestState;
+	public static DebugState debugState;
 
 	private static IGameLogic currentState;
 
@@ -26,6 +28,7 @@ public class StateManager {
 		documentState = new DocumentState();
 		shipState = new ShipState();
 		forestState = new ForestState();
+		debugState = new DebugState();
 		StateManager.window = window;
 	}
 

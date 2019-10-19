@@ -16,10 +16,10 @@ public class Ship extends Entity {
 
 	static {
 		SHIP_MODEL = Loader.load(new REFile("models/FreighterShip.fbx"));
-		SHIP_MODEL.material.diffuse = Texture.newTexture(new REFile("textures/Oxar_Diffuse.png")).anisotropic().create();
-		SHIP_MODEL.material.normal = Texture.newTexture(new REFile("textures/Oxar_Normal.png")).anisotropic().create();
-		SHIP_MODEL.material.reflectivity = 0.5F;
-		SHIP_MODEL.material.shineDamper = 32F;
+		SHIP_MODEL.material.setDiffuse(Texture.newTexture(new REFile("textures/Oxar_Diffuse.png")).anisotropic().create());
+		SHIP_MODEL.material.setNormal(Texture.newTexture(new REFile("textures/Oxar_Normal.png")).anisotropic().create());
+		SHIP_MODEL.material.setReflectivity(0.5F);
+		SHIP_MODEL.material.setShineDamper(32F);
 	}
 
 	private SoundSource soundSource;

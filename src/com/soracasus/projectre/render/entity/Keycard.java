@@ -15,10 +15,10 @@ public class Keycard extends Entity {
 
 	static {
 		KEYCARD_MODEL = Loader.load(new REFile("models/keycard.obj"));
-		KEYCARD_MODEL.material.diffuse = Texture.newTexture(new REFile("textures/keycard.png")).anisotropic().create();
-		KEYCARD_MODEL.material.normal = Texture.newTexture(new REFile("textures/null_normal.png")).anisotropic().create();
-		KEYCARD_MODEL.material.reflectivity = 0.5F;
-		KEYCARD_MODEL.material.shineDamper = 32F;
+		KEYCARD_MODEL.material.setDiffuse(Texture.newTexture(new REFile("textures/keycard.png")).anisotropic().create());
+		KEYCARD_MODEL.material.setNormal(Texture.newTexture(new REFile("textures/null_normal.png")).anisotropic().create());
+		KEYCARD_MODEL.material.setReflectivity(0.5F);
+		KEYCARD_MODEL.material.setShineDamper(32F);
 	}
 
 	public static int keyCount = 0;

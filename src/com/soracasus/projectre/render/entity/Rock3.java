@@ -15,10 +15,10 @@ public class Rock3 extends Entity {
 
 	static {
 		ROCK_MODEL = Loader.load(new REFile("models/rock_03.obj"));
-		ROCK_MODEL.material.diffuse = Texture.newTexture(new REFile("textures/rock03_diffuse.png")).anisotropic().create();
-		ROCK_MODEL.material.normal = Texture.newTexture(new REFile("textures/rock03_normal.png")).anisotropic().create();
-		ROCK_MODEL.material.reflectivity = 0.5F;
-		ROCK_MODEL.material.shineDamper = 32F;
+		ROCK_MODEL.material.setDiffuse(Texture.newTexture(new REFile("textures/rock03_diffuse.png")).anisotropic().create());
+		ROCK_MODEL.material.setNormal(Texture.newTexture(new REFile("textures/rock03_normal.png")).anisotropic().create());
+		ROCK_MODEL.material.setReflectivity(0.5F);
+		ROCK_MODEL.material.setShineDamper(32.0F);
 	}
 
 	public Rock3 (Vector3f position) {

@@ -16,10 +16,10 @@ public class Radio extends Entity {
 
 	static {
 		RADIO_MODEL = Loader.load(new REFile("models/HT-SF_medium.obj"));
-		RADIO_MODEL.material.diffuse = Texture.newTexture(new REFile("textures/radio_diffuse.png")).anisotropic().create();
-		RADIO_MODEL.material.normal = Texture.newTexture(new REFile("textures/radio_normal.png")).anisotropic().create();
-		RADIO_MODEL.material.reflectivity = 0.5F;
-		RADIO_MODEL.material.shineDamper = 32F;
+		RADIO_MODEL.material.setDiffuse(Texture.newTexture(new REFile("textures/radio_diffuse.png")).anisotropic().create());
+		RADIO_MODEL.material.setNormal(Texture.newTexture(new REFile("textures/radio_normal.png")).anisotropic().create());
+		RADIO_MODEL.material.setReflectivity(0.5F);
+		RADIO_MODEL.material.setShineDamper(32.0F);
 	}
 
 	public static int radioCount = 0;
@@ -35,9 +35,9 @@ public class Radio extends Entity {
 	@Override
 	public void onCollide (Entity entity) {
 		if (entity instanceof Player) {
-			Player p = (Player) entity;
-			if(radioCount < AudioEngine.radioLog.length)
-				p.playRadioLog(AudioEngine.radioLog[radioCount++]);
+//			Player p = (Player) entity;
+//			if(radioCount < AudioEngine.radioLog.length)
+//				p.playRadioLog(AudioEngine.radioLog[radioCount++]);
 			this.remove = true;
 		}
 	}

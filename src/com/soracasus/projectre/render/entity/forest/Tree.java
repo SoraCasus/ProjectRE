@@ -14,10 +14,10 @@ public class Tree extends Entity {
 
 	static {
 		TREE_MODEL = Loader.load(new REFile("models/forest/huge tree/huge_tree.obj"));
-		TREE_MODEL.material.diffuse = Texture.newTexture(new REFile("textures/forest/huge_tree.png")).anisotropic().create();
-		TREE_MODEL.material.normal = Texture.newTexture(new REFile("textures/forest/huge_tree_normal.png")).anisotropic().create();
-		TREE_MODEL.material.reflectivity = 1F;
-		TREE_MODEL.material.shineDamper = 1F;
+		TREE_MODEL.material.setDiffuse(Texture.newTexture(new REFile("textures/forest/huge_tree.png")).anisotropic().create());
+		TREE_MODEL.material.setNormal(Texture.newTexture(new REFile("textures/forest/huge_tree_normal.png")).anisotropic().create());
+		TREE_MODEL.material.setReflectivity(1.0F);
+		TREE_MODEL.material.setShineDamper(1.0F);
 	}
 
 	public Tree (Vector3f position) {

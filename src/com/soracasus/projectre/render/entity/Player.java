@@ -21,10 +21,10 @@ public class Player extends Entity {
 
     static {
         PLAYER_MODEL = Loader.load(new REFile("models/fighter01.obj"));
-        PLAYER_MODEL.material.diffuse = Texture.newTexture(new REFile("textures/f01_diffuse.png")).anisotropic().create();
-        PLAYER_MODEL.material.normal = Texture.newTexture(new REFile("textures/f01_normal.png")).anisotropic().create();
-        PLAYER_MODEL.material.reflectivity = 1F;
-        PLAYER_MODEL.material.shineDamper = 10F;
+        PLAYER_MODEL.material.setDiffuse(Texture.newTexture(new REFile("textures/f01_diffuse.png")).anisotropic().create());
+        PLAYER_MODEL.material.setNormal(Texture.newTexture(new REFile("textures/f01_normal.png")).anisotropic().create());
+        PLAYER_MODEL.material.setReflectivity(1F);
+        PLAYER_MODEL.material.setShineDamper(10F);
     }
 
     private static final float RUN_SPEED = 0.1F;

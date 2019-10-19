@@ -13,10 +13,10 @@ public class Wall extends Entity {
 
     static {
         WALL_MODEL = Loader.load(new REFile("models/wall.obj"));
-        WALL_MODEL.material.diffuse = Texture.newTexture(new REFile("textures/wall.png")).anisotropic().create();
-        WALL_MODEL.material.normal = Texture.newTexture(new REFile("textures/null_normal.png")).create();
-        WALL_MODEL.material.reflectivity = 0.5F;
-        WALL_MODEL.material.shineDamper = 32F;
+        WALL_MODEL.material.setDiffuse(Texture.newTexture(new REFile("textures/wall.png")).anisotropic().create());
+        WALL_MODEL.material.setNormal(Texture.newTexture(new REFile("textures/null_normal.png")).create());
+        WALL_MODEL.material.setReflectivity(0.5F);
+        WALL_MODEL.material.setShineDamper(32F);
     }
 
     public Wall(Vector3f position) {

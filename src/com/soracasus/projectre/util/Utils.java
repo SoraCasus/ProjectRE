@@ -68,7 +68,7 @@ public class Utils {
 			e.printStackTrace();
 		}
 
-
+		assert (buffer != null);
 		buffer.flip();
 		return buffer;
 	}

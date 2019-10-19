@@ -52,4 +52,13 @@ public class Colour {
 	public void b (float b) {
 		this.b = b;
 	}
+
+	public byte[] getAsBytes() {
+		int _r = (int)(this.r * 255);
+		int _g = (int)(this.g * 255);
+		int _b = (int)(this.b * 255);
+		int _a = (int)(this.a * 255);
+
+		return new byte[]{(byte)_r, (byte)_g, (byte)_b, (byte)_a};
+	}
 }

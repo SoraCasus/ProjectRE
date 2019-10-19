@@ -29,14 +29,11 @@ public class RutikalEngine implements Runnable {
 	public RutikalEngine (Window.WindowOpts opts) {
 		this.window = new Window(opts);
 		this.thread = new Thread(this, "RUTIKAL_ENGINE_THREAD");
-		this.mouseInput = new MouseInput(); }
+		this.mouseInput = new MouseInput();
+	}
 
 	public synchronized void start () {
-		String osName = System.getProperty("os.name");
-		if (osName.contains("Mac"))
-			thread.run();
-		else
-			thread.start();
+		thread.start();
 	}
 
 	@Override
@@ -58,7 +55,7 @@ public class RutikalEngine implements Runnable {
 
 	private void gameLoop () {
 		long lastTime = System.nanoTime();
-		long timer = System.currentTimeMillis();
+		// long timer = System.currentTimeMillis();
 		final double ns = 1e9 / (double) TARGET_UPS;
 		double delta = 0;
 
@@ -79,36 +76,36 @@ public class RutikalEngine implements Runnable {
 		}
 	}
 
-	private void loadFile() {
+	private void loadFile () {
 		REFile file = new REFile("saves/save.json");
 
-		if(file.getStream() == null) return;
+		if (file.getStream() == null) return;
 
 		StringBuilder sb = new StringBuilder();
-		try(BufferedReader reader = file.getReader()) {
+		try (BufferedReader reader = file.getReader()) {
 			String line;
-			while((line = reader.readLine()) != null)
+			while ((line = reader.readLine()) != null)
 				sb.append(line);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return;
 		}
 
-		if(sb.length() != 0) {
+		if (sb.length() != 0) {
 			System.out.println(sb);
 			JSONObject obj = new JSONObject(sb.toString());
 			// Radio.radioCount = obj.getInt("radiosCollected");
 		}
 	}
 
-	private void saveGame() {
+	private void saveGame () {
 		JSONObject saveFile = new JSONObject();
 		saveFile.put("radiosCollected", Radio.radioCount);
 
 		File file = new File("res/saves/save.json");
 		file.getParentFile().mkdirs();
 
-		try(FileWriter fw = new FileWriter(file)) {
+		try (FileWriter fw = new FileWriter(file)) {
 			fw.write(saveFile.toString());
 			System.out.println("Successfully saved game");
 		} catch (IOException e) {

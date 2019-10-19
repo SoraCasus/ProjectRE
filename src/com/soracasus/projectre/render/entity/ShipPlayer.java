@@ -21,10 +21,10 @@ public class ShipPlayer extends Entity {
 
 	static {
 		PLAYER_MODEL = Loader.load(new REFile("models/player.obj"), false);
-		PLAYER_MODEL.material.diffuse = Texture.newTexture(new REFile("textures/playerTexture.png")).anisotropic().create();
-		PLAYER_MODEL.material.normal = Texture.newTexture(new REFile("textures/null_normal.png")).anisotropic().create();
-		PLAYER_MODEL.material.reflectivity = 1F;
-		PLAYER_MODEL.material.shineDamper = 10F;
+		PLAYER_MODEL.material.setDiffuse(Texture.newTexture(new REFile("textures/playerTexture.png")).anisotropic().create());
+		PLAYER_MODEL.material.setNormal(Texture.newTexture(new REFile("textures/null_normal.png")).anisotropic().create());
+		PLAYER_MODEL.material.setReflectivity(1.0F);
+		PLAYER_MODEL.material.setShineDamper(10.0F);
 	}
 
 	private static final float RUN_SPEED = 0.08F;

@@ -59,16 +59,16 @@ public class WorldGenerator {
 		Random random = new Random(System.nanoTime());
 
 		Model rock0 = Loader.load(new REFile("models/rock_01.obj"));
-		rock0.material.diffuse = Texture.newTexture(new REFile("textures/rock01_diffuse.png")).anisotropic().create();
-		rock0.material.normal = Texture.newTexture(new REFile("textures/rock01_normal.png")).anisotropic().create();
-		rock0.material.reflectivity = 0.5F;
-		rock0.material.shineDamper = 32F;
+		rock0.material.setDiffuse(Texture.newTexture(new REFile("textures/rock01_diffuse.png")).anisotropic().create());
+		rock0.material.setNormal(Texture.newTexture(new REFile("textures/rock01_normal.png")).anisotropic().create());
+		rock0.material.setReflectivity(0.5F);
+		rock0.material.setShineDamper(32.0F);
 
 		Model rock1 = Loader.load(new REFile("models/rock_02.obj"));
-		rock1.material.diffuse = Texture.newTexture(new REFile("textures/rock02_diffuse.png")).anisotropic().create();
-		rock1.material.normal = Texture.newTexture(new REFile("textures/rock02_normal.png")).anisotropic().create();
-		rock1.material.reflectivity = 0.5F;
-		rock1.material.shineDamper = 32F;
+		rock1.material.setDiffuse(Texture.newTexture(new REFile("textures/rock02_diffuse.png")).anisotropic().create());
+		rock1.material.setNormal(Texture.newTexture(new REFile("textures/rock02_normal.png")).anisotropic().create());
+		rock1.material.setReflectivity(0.5F);
+		rock1.material.setShineDamper(32F);
 
 		for (int x = minX; x < maxX; x++) {
 			for (int z = minZ; z < maxZ; z++) {
@@ -97,6 +97,7 @@ public class WorldGenerator {
 							entities.add(new Rock3(new Vector3f(x, random.nextFloat() * 10F, z)));
 						}
 						break;
+						default: break;
 					}
 				} else {
 					if (r == 75) {

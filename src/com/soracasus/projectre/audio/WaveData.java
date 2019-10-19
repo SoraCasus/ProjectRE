@@ -72,6 +72,7 @@ public class WaveData {
 		} catch (UnsupportedAudioFileException | IOException e) {
 			e.printStackTrace();
 		}
+		assert(audioStream != null);
 		return new WaveData(audioStream);
 	}
 
